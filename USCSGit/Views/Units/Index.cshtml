@@ -1,0 +1,63 @@
+﻿@model IEnumerable<USCS.Models.Unit>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UnitValue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UnitMetric)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Eff_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Thru_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Active)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Load_Date)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UnitValue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UnitMetric)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Eff_Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Thru_Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Active)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Load_Date)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.UnitID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.UnitID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.UnitID })
+        </td>
+    </tr>
+}
+
+</table>

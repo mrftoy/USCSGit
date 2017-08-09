@@ -1,0 +1,72 @@
+﻿@model USCS.Models.LoginViewModel
+@*@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+    @Html.AntiForgeryToken()
+
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+        </li>
+        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+    </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+}*@
+
+
+@{
+    var db = new USCS.Models.UserManagerContext();
+    var dbUser = db.SiteUsers.Where(x => x.UserName.Equals(User.Identity.Name)).FirstOrDefault();
+
+    var UserName = String.Empty;
+
+    if (dbUser != null)
+    {
+        UserName = dbUser.FullName;
+    }
+}
+
+
+@if (Request.IsAuthenticated && User.Identity.IsAuthenticated)
+{
+    using (@Html.BeginForm("Logoff", "Login", new { area = "" }, FormMethod.Post, new { @id = "logoutForm", @class = "navbar-form navbar-right" }))
+    {
+
+        <div class="form-group">
+            @Html.AntiForgeryToken()
+
+            Hello <strong class="">@UserName!</strong>
+            <a href="javascript:document.getElementById('logoutForm').submit()" class="btn btn-default navbar-btn btn-sm">Sign Out</a>
+
+
+        </div>
+    }
+
+}
+else
+{
+    using (Html.BeginForm("Login", "Login", new { returnUrl = ViewBag.ReturnUrl, area = "" }, FormMethod.Post, new { @class = "navbar-form navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            @Html.TextBoxFor(x => x.Username, new { @class = "form-control", @placeholder = "User Name", @required = "required", @autofocus = "autofocus", @style = "height: 30px; width:100px" })
+        </div>
+        <div class="form-group">
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password", @required = "required", @style = "height: 30px;width:100px" })
+        </div>
+        <div class="form-group">
+            <button class="btn btn-default navbar-btn" type="submit">Sign in</button>
+        </div>
+
+
+    }
+}

@@ -1,0 +1,82 @@
+﻿@model USCS.Models.Modifier
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Modifier</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Modifier1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Modifier1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifierType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifierType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifierDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifierDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifierDefinition)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifierDefinition)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Eff_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Eff_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Thru_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Thru_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Active)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Load_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Load_Date)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ModifierID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

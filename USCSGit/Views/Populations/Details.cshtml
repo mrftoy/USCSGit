@@ -1,0 +1,66 @@
+﻿@model USCS.Models.Population
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Population</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Population1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Population1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AgeRange)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AgeRange)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Eff_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Eff_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Thru_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Thru_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Active)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Load_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Load_Date)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PopulationID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

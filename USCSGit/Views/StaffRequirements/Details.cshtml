@@ -1,0 +1,58 @@
+﻿@model USCS.Models.StaffRequirement
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>StaffRequirement</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.StaffLicensure)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StaffLicensure)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Eff_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Eff_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Thru_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Thru_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Active)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Load_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Load_Date)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.StaffRequirementID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,74 @@
+﻿@model USCS.Models.Duration
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Duration</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MinimumValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MinimumValue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaximumValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaximumValue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DurationMetric)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DurationMetric)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Eff_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Eff_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Thru_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Thru_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Active)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Load_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Load_Date)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DurationID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

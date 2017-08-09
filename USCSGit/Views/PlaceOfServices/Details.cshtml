@@ -1,0 +1,74 @@
+﻿@model USCS.Models.PlaceOfService
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PlaceOfService</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.POSCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.POSCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.POSName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.POSName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.POSDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.POSDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Eff_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Eff_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Thru_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Thru_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Deleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Deleted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Load_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Load_Date)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PlaceOfServiceID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

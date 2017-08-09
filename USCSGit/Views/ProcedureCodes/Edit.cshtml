@@ -1,0 +1,427 @@
+﻿@model USCS.Models.ProcedureCode
+@*@model USCS.ViewModels.USCSFormVM*@
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>USCS Form</h4>
+        <hr />
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Active, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Active, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Active, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.Domain, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Domain, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Domain, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.PrimaryCategory, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PrimaryCategory, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PrimaryCategory, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SecondaryCategory, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SecondaryCategory, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SecondaryCategory, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TertiaryCategory, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TertiaryCategory, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TertiaryCategory, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CPT_HCPCS_Code, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CPT_HCPCS_Code, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CPT_HCPCS_Code, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProcedureCodeDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ProcedureCodeDescription, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ProcedureCodeDescription, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <hr />
+        <h4>USAGE</h4>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <table>
+                    <tr>
+                        @{
+                            int cnt1 = 0;
+                            List<USCS.ViewModels.AssignedUsageData> usages = ViewBag.Usages;
+
+                            foreach (var usage in usages)
+                            {
+                                if (cnt1++ % 3 == 0)
+                                {
+                                    @:</tr><tr>
+                                }
+                                @:<td>
+                                    <input type="checkbox"
+                                           name="selectedUsages"
+                                           value="@usage.UsageID"
+                                           @(Html.Raw(usage.Assigned ? "checked=\"checked\"" : "")) />
+                                        @:  @usage.Usage1
+                                @:</td>
+                            }
+                            @:</tr>
+                        }
+                    </table>
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ServiceDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ServiceDescription, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ServiceDescription, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            @*<div class="form-group">
+                @Html.LabelFor(model => model.DocumentationRequirements, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.DocumentationRequirements, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DocumentationRequirements, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ProcedureCodeNotes, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ProcedureCodeNotes, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ProcedureCodeNotes, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            @*<div class="form-group">
+                @Html.LabelFor(model => model.Activity1, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Activity1, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Activity1, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+            <hr />
+            <h4>APPLICABLE POPULATION(S)</h4>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <table>
+                        <tr>
+                            @{
+                                int cnt2 = 0;
+                                List<USCS.ViewModels.AssignedPopulationData> populations = ViewBag.Populations;
+
+                                foreach (var population in populations)
+                                {
+                                    if (cnt2++ % 3 == 0)
+                                    {
+                                        @:</tr><tr>
+                                    }
+                                    @:<td>
+                                        <input type="checkbox"
+                                               name="selectedPopulations"
+                                               value="@population.PopulationID"
+                                               @(Html.Raw(population.Assigned ? "checked=\"checked\"" : "")) />
+                                            @:  @population.Population1 @population.AgeRange
+                                            @:</td>
+                                }
+                                @:</tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+
+                <hr />
+                <h4>UNIT</h4>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <table>
+                            <tr>
+                                @{
+                                    int cnt3 = 0;
+                                    List<USCS.ViewModels.AssignedUnitData> units = ViewBag.Units;
+
+                                    foreach (var unit in units)
+                                    {
+                                        if (cnt3++ % 3 == 0)
+                                        {
+                                            @:</tr><tr>
+                                        }
+                                        @:<td>
+                                            <input type="checkbox"
+                                                   name="selectedUnits"
+                                                   value="@unit.UnitID"
+                                                   @(Html.Raw(unit.Assigned ? "checked=\"checked\"" : "")) />
+                                                @:   @unit.UnitValue  @unit.UnitMetric
+                                        @:</td>
+                                    }
+                                    @:</tr>
+                                }
+                            </table>
+                        </div>
+                    </div>
+
+                    <hr />
+                    @*<h4>DURATION</h4>
+                    <br />
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.MinimumValue, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.MinimumValue, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.MinimumValue, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.MaximumValue, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.MaximumValue, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.MaximumValue, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.DurationMetric, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.DurationMetric, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.DurationMetric, "", new { @class = "text-danger" })
+                        </div>
+                    </div>*@
+
+                    @*<hr />*@
+
+                    <h4>ALLOWED MODE(S) OF DELIVERY</h4>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <table>
+                                <tr>
+                                    @{
+                                        int cnt5 = 0;
+                                        List<USCS.ViewModels.AssignedModeOfDeliveryData> modeofdeliveries = ViewBag.ModeOfDeliveries;
+
+                                        foreach (var modeofdelivery in modeofdeliveries)
+                                        {
+                                            if (cnt5++ % 3 == 0)
+                                            {
+                                                @:</tr><tr>
+                                            }
+                                            @:<td>
+                                                <input type="checkbox"
+                                                       name="selectedModeOfDeliveries"
+                                                       value="@modeofdelivery.ModeOfDeliveryID"
+                                                       @(Html.Raw(modeofdelivery.Assigned ? "checked=\"checked\"" : "")) />
+                                                    @:  @modeofdelivery.ModeOfDelivery1
+                                             @:</td>
+                                        }
+                                        @:</tr>
+                                    }
+                                </table>
+                            </div>
+                        </div>
+
+                        <hr />
+                        <h4>PROGRAM SERVICE CATEGORY</h4>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <table>
+                                    <tr>
+                                        @{
+                                            int cnt6 = 0;
+                                            List<USCS.ViewModels.AssignedProgramServiceCategoryData> programservicecategories = ViewBag.ProgramServiceCategories;
+
+                                            foreach (var programservicecategory in programservicecategories)
+                                            {
+                                                if (cnt6++ % 3 == 0)
+                                                {
+                                                    @:</tr><tr>
+                                                }
+                                                @:<td>
+                                                    <input type="checkbox"
+                                                           name="selectedProgramServiceCategories"
+                                                           value="@programservicecategory.ProgramServiceCategoryID"
+                                                           @(Html.Raw(programservicecategory.Assigned ? "checked=\"checked\"" : "")) />
+                                                        @:  @programservicecategory.ProgramServiceCategory1
+                                                @:</td>
+                                            }
+                                            @:</tr>
+                                        }
+                                    </table>
+                                </div>
+                            </div>
+
+
+                            <hr />
+                            <h4>STAFF REQUIREMENTS</h4>
+
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <table>
+                                        <tr>
+                                            @{
+                                                int cnt7 = 0;
+                                                List<USCS.ViewModels.AssignedStaffRequirementData> staffrequirements = ViewBag.StaffRequirements;
+
+                                                foreach (var staffrequirement in staffrequirements)
+                                                {
+                                                    if (cnt7++ % 6 == 0)
+                                                    {
+                                                        @:</tr><tr>
+                                                    }
+                                                    @:<td>
+                                                        <input type="checkbox"
+                                                               name="selectedStaffRequirements"
+                                                               value="@staffrequirement.StaffRequirementID"
+                                                               @(Html.Raw(staffrequirement.Assigned ? "checked=\"checked\"" : "")) />
+                                                            @:  @staffrequirement.StaffLicensure
+                                                    @:</td>
+                                                }
+                                                @:</tr>
+                                            }
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <hr />
+                                <h4>PLACE OF SERVICE (POS)</h4>
+
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <table>
+                                            <tr>
+                                                @{
+                                                    int cnt8 = 0;
+                                                    List<USCS.ViewModels.AssignedPlaceOfServiceData> placeofservices = ViewBag.PlaceOfServices;
+
+                                                    foreach (var placeofservice in placeofservices)
+                                                    {
+                                                        if (cnt8++ % 6 == 0)
+                                                        {
+                                                            @:</tr><tr>
+                                                        }
+                                                        @:<td>
+                                                            <input type="checkbox"
+                                                                   name="selectedPlaceOfServices"
+                                                                   value="@placeofservice.PlaceOfServiceID"
+                                                                   @(Html.Raw(placeofservice.Assigned ? "checked=\"checked\"" : "")) />
+                                                                @:  @placeofservice.POSName @placeofservice.POSCode
+                                                        @:</td>
+                                                    }
+                                                    @:</tr>
+                                                }
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <hr />
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Eff_Date, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.Eff_Date, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Eff_Date, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Thru_Date, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.Thru_Date, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Thru_Date, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    @Html.HiddenFor(model => model.Load_Date, new { @Value = System.DateTime.Now })
+
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <input type="submit" value="Save" class="btn btn-default" />
+                                        </div>
+                                    </div>
+                                </div>
+                                                    }
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/jquery.autocomplete.js" type="text/javascript"></script>
+    <script src="~/Scripts/jquery.autocomplete.min.js" type="text/javascript"></script>
+    <link href="~/Scripts/jquery.autocomplete.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+
+$(document).ready(function () {
+    $("#Domain").autocomplete('@Url.Action("GetDomainName", "USCSForm")', { minChars: 1 });
+});
+
+$(document).ready(function () {
+    $("#PrimaryCategory").autocomplete('@Url.Action("GetPrimaryCategoryName", "USCSForm")', { minChars: 1 });
+});
+
+$(document).ready(function () {
+    $("#SecondaryCategory").autocomplete('@Url.Action("GetSecondaryCategoryName", "USCSForm")', { minChars: 1 });
+});
+
+$(document).ready(function () {
+    $("#TertiaryCategory").autocomplete('@Url.Action("GetTertiaryCategoryName", "USCSForm")', { minChars: 1 });
+});
+
+$(document).ready(function () {
+    $("#CPT_HCPCS_Code").autocomplete('@Url.Action("GetCPT_HCPCS_Code", "USCSForm")', { minChars: 1 });
+});
+
+$(document).ready(function () {
+    $("#MinimumValue").autocomplete('@Url.Action("GetDurationMinimumValue", "USCSForm")', { minChars: 1 });
+});
+
+$(document).ready(function () {
+    $("#MaximumValue").autocomplete('@Url.Action("GetDurationMaximumValue", "USCSForm")', { minChars: 1 });
+});
+
+$(document).ready(function () {
+    $("#DurationMetric").autocomplete('@Url.Action("GetDurationMetric", "USCSForm")', { minChars: 1 });
+});
+
+    </script>
+}

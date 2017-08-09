@@ -1,0 +1,82 @@
+﻿@model USCS.Models.ProcedureCode
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ProcedureCode</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CPT_HCPCS_Code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CPT_HCPCS_Code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProcedureCodeDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProcedureCodeDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServiceDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProcedureCodeNotes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProcedureCodeNotes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Eff_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Eff_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Thru_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Thru_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Active)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Load_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Load_Date)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProcedureCodeID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

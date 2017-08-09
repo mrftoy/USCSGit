@@ -1,0 +1,76 @@
+﻿@model IEnumerable<USCS.Models.ProcedureCode>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Procedure Code List</h2>
+
+<p>
+    @Html.ActionLink("Create New Procedure Code", "Create")
+    @*@Html.ActionLink("Create New", "Create", "USCSForm")*@
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CPT_HCPCS_Code)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProcedureCodeDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ServiceDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProcedureCodeNotes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Eff_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Thru_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Active)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Load_Date)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CPT_HCPCS_Code)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProcedureCodeDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServiceDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProcedureCodeNotes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Eff_Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Thru_Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Active)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Load_Date)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ProcedureCodeID }) |
+            @*@Html.ActionLink("Details", "Details", new { id=item.ProcedureCodeID }) |*@
+            @Html.ActionLink("Delete", "Delete", new { id=item.ProcedureCodeID })
+        </td>
+    </tr>
+}
+
+</table>

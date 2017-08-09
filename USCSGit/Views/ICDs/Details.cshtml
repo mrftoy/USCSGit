@@ -1,0 +1,74 @@
+﻿@model USCS.Models.ICD
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ICD</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ICDVersion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ICDVersion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ICDCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ICDCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ICDDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ICDDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Eff_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Eff_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Thru_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Thru_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Deleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Deleted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Load_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Load_Date)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ICDID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
